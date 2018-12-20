@@ -1,0 +1,158 @@
+$primary-color: #1269b5;
+
+div.box {
+  background: $primary-color;
+}
+
+h1.page-header {
+  border: 1px solid $primary-color;
+}
+
+// 默认是使用 空格 拼接 父选择器 子选择器
+#content {
+  article {
+    h1 {
+      color: #333;
+    }
+
+    p {
+       margin-bottom: 1.4em
+    }
+  }
+
+  aside {
+    background-color: #eee;
+  }
+}
+
+// & 使用 父选择器 替换 & 符号
+article a {
+  color: red;
+  &:hover { color: blue; }
+  body.ie & { color: yellow; }
+}
+
+// 群组选择器
+nav, aside {
+  a {text-decoration: none; }
+}
+
+
+article {
+  ~ article { border-top: 1px dashed #ccc }
+  > section { background: #eee }
+  dl > {
+    dt { color: #333 }
+    dd { color: #555 }
+  }
+  nav + & { margin-top: 0 }
+}
+
+// 嵌套属性
+nav {
+  border: {
+    width: 1px;
+    color: red;
+  }
+}
+
+// 混合器
+@mixin link-colors($normal, $hover, $visited: green) {
+  color: $normal;
+  &:hover { color: $hover; }
+  &:visited { color: $visited; }
+}
+
+a {
+  @include link-colors(red, blue);
+}
+
+//通过选择器继承继承样式
+.error {
+  border: 1px solid red;
+  background-color: #fdd;
+}
+
+.error a {
+  color: red;
+}
+
+.seriousError {
+  @extend .error;
+  border-width: 3px;
+}
+
+.alert {
+  padding: 15px;
+}
+
+.alert-info {
+  @extend .alert;
+  color: #000;
+}
+
+.ccc {
+  background-color: rgba(255, 255, 0, 0.7);
+}
+
+// interpolation
+$version: "0.0.1";
+/* 当前版本: #{$version} */
+
+$name: 'info';
+$attr: 'border';
+
+.alert-#{$name} {
+  color: red;
+}
+
+.btn {
+  #{$attr}-radius: 2px;
+}
+
+// @if
+$user-prefixes : false;
+
+.rounded {
+  @if $user-prefixes {
+    -o-border-radius: 5px;
+  }
+
+  border-radius: 5px;
+}
+
+$colums: 4;
+@for $i from 1 through $colums {
+  .col-#{$i} {
+    width: 100% / $colums * $i;
+  }
+}
+
+$icons: success error warning;
+@each $icon in $icons {
+  .icon-#{$icon} {
+    background-image: url("../images/icons/#{$icon}.png");
+  }
+}
+
+$i: 6;
+@while $i > 0 {
+  .item-#{$i} {
+    width: 5px * $i;
+  }
+
+  $i: $i - 2;
+}
+
+// 函数
+$colorss: (light: #ffffff, dark: #000000);
+@function color($key) {
+  @if not map-has-key($colorss, $key) {
+    @error "在 $colorss 中没找到 #{$key}";
+  }
+  @return map-get($colorss, $key);
+}
+
+.by {
+  background-color: color(dark);
+}

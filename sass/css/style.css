@@ -1,0 +1,147 @@
+@charset "UTF-8";
+div.box {
+  background: #1269b5;
+}
+
+h1.page-header {
+  border: 1px solid #1269b5;
+}
+
+#content article h1 {
+  color: #333;
+}
+#content article p {
+  margin-bottom: 1.4em;
+}
+#content aside {
+  background-color: #eee;
+}
+
+article a {
+  color: red;
+}
+article a:hover {
+  color: blue;
+}
+body.ie article a {
+  color: yellow;
+}
+
+nav a, aside a {
+  text-decoration: none;
+}
+
+article ~ article {
+  border-top: 1px dashed #ccc;
+}
+article > section {
+  background: #eee;
+}
+article dl > dt {
+  color: #333;
+}
+article dl > dd {
+  color: #555;
+}
+nav + article {
+  margin-top: 0;
+}
+
+nav {
+  border-width: 1px;
+  border-color: red;
+}
+
+a {
+  color: red;
+}
+a:hover {
+  color: blue;
+}
+a:visited {
+  color: green;
+}
+
+.error, .seriousError {
+  border: 1px solid red;
+  background-color: #fdd;
+}
+
+.error a, .seriousError a {
+  color: red;
+}
+
+.seriousError {
+  border-width: 3px;
+}
+
+.alert, .alert-info {
+  padding: 15px;
+}
+
+.alert-info {
+  color: #000;
+}
+
+.ccc {
+  background-color: rgba(255, 255, 0, 0.7);
+}
+
+/* 当前版本: 0.0.1 */
+.alert-info {
+  color: red;
+}
+
+.btn {
+  border-radius: 2px;
+}
+
+.rounded {
+  border-radius: 5px;
+}
+
+.col-1 {
+  width: 25%;
+}
+
+.col-2 {
+  width: 50%;
+}
+
+.col-3 {
+  width: 75%;
+}
+
+.col-4 {
+  width: 100%;
+}
+
+.icon-success {
+  background-image: url("../images/icons/success.png");
+}
+
+.icon-error {
+  background-image: url("../images/icons/error.png");
+}
+
+.icon-warning {
+  background-image: url("../images/icons/warning.png");
+}
+
+.item-6 {
+  width: 30px;
+}
+
+.item-4 {
+  width: 20px;
+}
+
+.item-2 {
+  width: 10px;
+}
+
+.by {
+  background-color: #000000;
+}
+
+/*# sourceMappingURL=style.css.map */
